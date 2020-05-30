@@ -2,7 +2,6 @@
 #include <SFML/Window/Event.hpp>
 #include <iostream>
 #include <random>
-#include "FPS.h"
 
 static std::mt19937 rndEngine(static_cast<unsigned long>(std::time(nullptr)));
 static inline float value(float begin, float end, std::mt19937 &engine = rndEngine)
@@ -21,7 +20,9 @@ App::App()
     player.setFillColor(sf::Color::White);
     player.setOrigin(5, 5);
 
-    for (int i = 0; i < 360; i += 1)
+
+    const float step = 1.f / 1000;
+    for (int i = 0; i < 360 * 60; i += 1)
     {
         rays.push_back(Ray(player.getPosition(), i));
     }
@@ -54,8 +55,6 @@ void App::run()
             handleEvents();
             update(timePerFrame);
         }
-        //fps.update();
-        //mWindow.setTitle("Raycast - FPS: "+std::to_string(fps.getFPS()));
         render();
     }
 }

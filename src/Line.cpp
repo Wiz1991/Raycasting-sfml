@@ -7,7 +7,7 @@ Ray::Ray(sf::Vector2f pos1,sf::Vector2f pos2)
 }
 Ray::Ray(sf::Vector2f pos,float angle)
 {
-    points[0] = sf::Vertex(pos,sf::Color::Red);
+    points[0] = sf::Vertex(pos,sf::Color(255, 255, 255, 10));
 
     sf::Vector2f dirPoint;
     m_angle= angle* (3.14/180);
@@ -15,7 +15,7 @@ Ray::Ray(sf::Vector2f pos,float angle)
     dirPoint.x = points[0].position.x + 5000 * std::cos(m_angle);
     dirPoint.y = points[0].position.y + 5000 * std::sin(m_angle);
 
-    points[1] = sf::Vertex(dirPoint,sf::Color::Red);    
+    points[1] = sf::Vertex(dirPoint,sf::Color(255, 255, 255, 10));    
 }
 void Ray::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
@@ -30,5 +30,5 @@ void Ray::update(sf::Time dT){
     dirPoint.x = points[0].position.x + 5000 * std::cos(m_angle);
     dirPoint.y = points[0].position.y + 5000 * std::sin(m_angle);
 
-   points[1] = sf::Vertex(dirPoint,sf::Color::Red);    
+   points[1] = sf::Vertex(dirPoint,sf::Color(255, 255, 255, 10));    
 }
