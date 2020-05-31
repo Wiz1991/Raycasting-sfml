@@ -2,8 +2,8 @@
 #include <math.h>
 Ray::Ray(sf::Vector2f pos1,sf::Vector2f pos2)
 {
-    points[0] = sf::Vertex(pos1,sf::Color::Green);
-    points[1] = sf::Vertex(pos2,sf::Color::Green);
+    points[0] = sf::Vertex(pos1,sf::Color::Red);
+    points[1] = sf::Vertex(pos2,sf::Color::Red);
 }
 Ray::Ray(sf::Vector2f pos,float angle)
 {

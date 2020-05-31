@@ -9,7 +9,6 @@ static inline float value(float begin, float end, std::mt19937 &engine = rndEngi
     std::uniform_real_distribution<float> dist(begin, end);
     return dist(engine);
 }
-
 const sf::Time App::timePerFrame = sf::seconds(1.f / 60.f);
 bool lineIntersect(const sf::Vector2f &A1, const sf::Vector2f &A2, const sf::Vector2f &B1, const sf::Vector2f &B2, sf::Vector2f &intersection);
 App::App()
@@ -19,7 +18,6 @@ App::App()
     player.setPosition(300, 300);
     player.setFillColor(sf::Color::White);
     player.setOrigin(5, 5);
-
 
     const float step = 1.f / 1000;
     for (int i = 0; i < 360 * 60; i += 1)
@@ -43,7 +41,6 @@ void App::run()
 {
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
-    FPS fps;
 
     while (mWindow.isOpen())
     {
@@ -72,7 +69,7 @@ void App::update(sf::Time dT)
             sf::Vector2f iPoint;
             if (lineIntersect(ray[0], ray[1], wall[0], wall[1], iPoint))
             {
-                
+
                 double dx = (ray[0].x - iPoint.x);
                 double dy = (ray[0].y - iPoint.y);
                 float distance = dx * dx + dy * dy;
@@ -83,8 +80,9 @@ void App::update(sf::Time dT)
                 }
             }
         }
-        if (closest.x != 0)
+        if (closest.x != 0){
             ray[1] = closest;
+        }
     }
 }
 void App::handleEvents()
